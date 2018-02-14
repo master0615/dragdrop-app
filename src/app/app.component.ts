@@ -37,7 +37,7 @@ export class AppComponent {
     width: 500,
     height: 600
   };
-
+  
   private json: any;
   private globalEditor: boolean = false;
   private figureEditor: boolean = false;
@@ -92,11 +92,6 @@ export class AppComponent {
     this.canvas.setWidth(this.size.width);
     this.canvas.setHeight(this.size.height);
 
-    // get references to the html canvas element & its context
-    // this.canvas.on('mouse:down', (e) => {
-    // let canvasElement: any = document.getElementById('canvas');
-    // console.log(canvasElement)
-    // });
     this.getFigures();
   }
 
@@ -104,7 +99,7 @@ export class AppComponent {
     this.apiServe.getFigures().subscribe(
       res =>{
         this.figures = [...res];
-        //console.log(this.figures);
+
         this.addFiguresToCanvas(this.figures);
       },
       err =>{
@@ -175,7 +170,6 @@ export class AppComponent {
   addFiguresToCanvas(figures:Figure[]){
     figures.forEach( figure =>{
       this.FigureAdd( figure );
-      //console.log(figure);
     });
   }
   FigureAdd(figure:Figure){
@@ -294,7 +288,6 @@ export class AppComponent {
     else {
       object.set(styleName, value);
     }
-    //console.log(object);
     this.updateFigure(object);
     object.setCoords();
     this.canvas.renderAll();
@@ -346,9 +339,6 @@ export class AppComponent {
           opacity:activeObject.opacity * 100});
         
         this.createFigure( newFigure );
-        //console.log(newFigure);
-        //this.canvas.add(clone);
-        //this.selectItemAfterAdded(clone);
       }
     }
   }
@@ -360,7 +350,7 @@ export class AppComponent {
   setId() {
     let val = this.props.id;
     let complete = this.canvas.getActiveObject().toObject();
-    //console.log(complete);
+
     this.canvas.getActiveObject().toObject = () => {
       complete.id = val;
       return complete;
@@ -388,8 +378,6 @@ export class AppComponent {
   removeSelected() {
     let activeObject = this.canvas.getActiveObject(),
       activeGroup = this.canvas.getActiveGroup();
-    //console.log(activeObject);
-    //console.log(activeGroup);
     if (activeObject) {
       this.deleteFigure( activeObject );
     } 

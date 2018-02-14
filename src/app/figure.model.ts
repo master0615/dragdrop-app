@@ -16,7 +16,7 @@ export class Figure {
             this.left = figure.left || 10;
             this.top = figure.top || 10;
             this.width = figure.width || 200;
-            this.height = figure.height || 100;
+            this.height = figure.height || 200;
             this.angle = figure.angle || 0;
             this.color = figure.color || '#00FFFF';
             this.opacity = figure.opacity || 100;
