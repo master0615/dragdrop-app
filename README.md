@@ -2,13 +2,6 @@
 
 > Drag-and-drop editor based on Fabricjs for Angular v5 with multiple options
 
-### Preview
-![](https://s1.gifgif.io/0qQV2a.gif)
-### Example
-![Imgur](https://i.imgur.com/sQsL8G4.png)
-### Output
-![Imgur](https://i.imgur.com/hgTEb20.png)
-
 ### Features
 * Add figures (Rectangle, Triangle, Circle)
 * Clone Object
