@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 main-title">
+            <h4>Test Task: Drap and Drop Objects</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="card-header">Size</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" [(ngModel)]="size.width" (keyup)="changeSize()">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    Width
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" [(ngModel)]="size.height" (keyup)="changeSize()">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    Height
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="card">
+                <div class="card-header">Add figure</div>
+                <div class="card-body text-center max-height">
+                    <div class="btn-group btn-group-vertical" role="group" aria-label="...">
+                        <button type="button" class="btn btn-primary" (click)="addFigure('rect');">Rectangle</button>
+                        <button type="button" class="btn btn-primary" (click)="addFigure('triangle');">Triangle</button>
+                        <button type="button" class="btn btn-primary" (click)="addFigure('circle');">Circle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="card-header">Options</div>
+                <div class="card-body text-center">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button data-toggle="tooltip" data-placement="bottom" title="Delete element" type="button" class="btn btn-outline-danger" [disabled]="!selected"
+                            (click)="removeSelected();">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        <button data-toggle="tooltip" data-placement="bottom" title="Clone" type="button" class="btn btn-outline-primary" [disabled]="!selected || selected.type == 'group'"
+                            (click)="clone();">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                        </button>
+                        <button data-toggle="tooltip" data-placement="bottom" title="Unselect" type="button" class="btn btn-outline-primary" [disabled]="!selected"
+                            (click)="cleanSelect()">
+                            <i class="fa fa-remove" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="card">
+                <div class="card-header">Custom</div>
+                <div class="card-body">
+                    <div class="custom-item" *ngIf="selected  && selected.type == 'group'">Group Selected</div>
+                    <div class="custom-item" *ngIf="!selected">No items selected</div>
+                    <div class="custom-item" *ngIf="selected && selected.type != 'group'">
+                        <div class="custom-item-title">ID</div>
+                        <div class="custom-item-body">
+                            <input type="text" class="form-control" [(ngModel)]="props.id" (keyup)="setId()" readonly>
+                        </div>
+                    </div>
+                    <div class="custom-item" *ngIf="selected && selected.type != 'group'">
+                        <div class="custom-item-title">Opacity</div>
+                        <div class="custom-item-body">
+                            <input type="range" [(ngModel)]="props.opacity" (change)="setOpacity()">{{props.opacity}}</div>
+                    </div>
+                    <div class="custom-item" *ngIf="selected && figureEditor">
+                        <div class="custom-item-title">Fill</div>
+                        <div class="custom-item-body">
+                            <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="props.fill" [style.background]="props.fill"
+                                [value]="props.fill" (colorPickerChange)="setFill()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+  #canvas {
+    border: 2px dashed #cccccc;
+  }
+  .main-title{
+    margin-top: 10px;
+  }
+
+  .custom-item {
+    border-bottom: 2px solid #f3f3f3;
+  }
+  
+  .custom-item .custom-item-title {
+    color: #666666;
+    font-weight: 600;
+  }
+  
+  .custom-item .custom-item-body {
+    padding: 10px 0;
+  }
+  
+  .max-height{
+    overflow: auto;
+    max-height: 300px;
+  }
+  
