@@ -1,5 +1,4 @@
-# angular-editor-fabric-js
-
+# Drag and Drop Angular App
 > Drag-and-drop editor based on Fabricjs for Angular v5 with multiple options
 
 ### Features
