@@ -334,8 +334,21 @@ export class AppComponent {
       }
       if (clone) {
         clone.set({ left: 10, top: 10 });
-        this.canvas.add(clone);
-        this.selectItemAfterAdded(clone);
+
+        let newFigure = new Figure({
+          type:activeObject.type, 
+          top:10, 
+          left:10, 
+          width: activeObject.width, 
+          height:activeObject.height, 
+          angle: activeObject.angle, 
+          color: activeObject.fill,
+          opacity:activeObject.opacity * 100});
+        
+        this.createFigure( newFigure );
+        //console.log(newFigure);
+        //this.canvas.add(clone);
+        //this.selectItemAfterAdded(clone);
       }
     }
   }
